@@ -54,4 +54,21 @@ class Ejercicios extends FunSuite with Matchers {
          List(2,3,1,1,1,2,2,1,2,1), 0.05
        ) should be (0.9801935786069977, 2.2198064213930024)
    }
+
+   /** Ejercicio 10
+    * De una población formada por infinitas variables aleatorias independientes entre sí,
+    * todas con distribución de probabilidades N(m,σ²) se ha obtenido la siguiente muestra:
+    * 1,1,3,3,3,4,2,2,1,1
+    */
+   test("Ejercicio (10.a) Calcular las esimaciones puntuales de los valores poblacionales m y σ²") {
+
+   }
+
+   test("Ejercicio (10.b) Construir un intervalo de confiabilidad para el valor medio poblacional," +
+        "con un nivel de significatividad del 10%") {
+     Student.confidenceInterval(
+       List(1,1,3,3,3,4,2,2,1,1), 0.10
+     ) should be (1.4620972723055656, 2.7379027276944345)
+   }
+
  }
