@@ -5,6 +5,7 @@ package statistics.inferential
  */
 import org.scalatest.{FunSuite, Matchers}
 import statistics.ImplicitOperators
+import statistics.descriptive.Stats
 
 class Ejercicios extends FunSuite with Matchers {
 
@@ -37,4 +38,20 @@ class Ejercicios extends FunSuite with Matchers {
      new Normal(m,`σ²`).Z.greaterThanYWithGivenP(0.9) should be (2.9835859020451223)
    }
 
+   /** Ejercicio 9
+    * De una población formada por infinitas variables aleatorias independientes entre sí,
+    * todas con distribución de probabilidades N(m,1) se ha obtenido la siguiente muestra:
+    * 2,3,1,1,1,2,2,1,2,1
+   */
+   test("Ejercicio (9.a) Calcular el estimador puntual del parámetro m") {
+     Stats.Estimators.Ῡ(List(2,3,1,1,1,2,2,1,2,1)) should be (1.6)
+   }
+
+   test("Ejercicio (9.b) Construir un intervalo de confiabilidad para" +
+        "el valor medio poblacional con un nivel de significación del 5%") {
+     new Normal(0,1). //0 no importa, pero σ² sí porque es conocida, sino habría que usar t de Student
+       confidenceInterval(
+         List(2,3,1,1,1,2,2,1,2,1), 0.05
+       ) should be (0.9801935786069977, 2.2198064213930024)
+   }
  }

@@ -1,10 +1,11 @@
 package statistics.inferential
 
 /**
- * Created by inieto on 06/06/15.
- */
+*  Created by inieto on 06/06/15.
+*/
 
 import statistics.ImplicitOperators
+import statistics.descriptive.Stats
 import scala.collection.immutable.SortedMap
 
 class Normal(m: Double, `σ²`: Double) {
@@ -84,6 +85,19 @@ class Normal(m: Double, `σ²`: Double) {
       (-z,z)
     }
   }
+
+  //Devuelve la tupla (min,Max) tal que P(min < m < Max) = 1-α
+  def confidenceInterval(values: List[Double], α : Double): (Double,Double) = {
+    val Ῡ = Stats.Estimators.Ῡ(values)
+    val n = values.size
+    confidenceInterval(Ῡ, n, α)
+  }
+
+  def confidenceInterval(Ῡ: Double, n: Int, α : Double): (Double, Double) = {
+    val Zc = zIndex(halfCurve - α/2)
+    (Ῡ - Zc * σ / √(n), Ῡ + Zc * σ / √(n))
+  }
+
   //Normal (0,1)
   private val halfCurve: Double = 0.5D
   private val distribution: SortedMap[Double,Double] = SortedMap(

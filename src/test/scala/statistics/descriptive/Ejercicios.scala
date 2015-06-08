@@ -21,12 +21,12 @@ class Ejercicios extends FunSuite with Matchers {
   val x = Map(0->0.1, 1->0.2, 2->0.45, 3->0.15, 4->0.05, 5->0.05)
 
   test("Ejercicio (1.b) Calcular el número esperado de accidentes diarios") {
-    val m = Stats.expectation(x)
+    val m = Stats.Metrics.expectation(x)
     m should be (2)
   }
 
   test("Ejercicio (1.d) Calcular el desvío estándar de la variable aleatoria X") {
-    val σ = Stats.standardDeviation(x)
+    val σ = Stats.Metrics.standardDeviation(x)
     σ should be(1.1832159566199232)
   }
 
@@ -42,13 +42,13 @@ class Ejercicios extends FunSuite with Matchers {
 
     val x = Map(0->0.32, 1->0.35, 2->0.18, 3->0.08, 4->0.04, 5->0.02, 6->0.01)
 
-    val m = Stats.expectation(x)
+    val m = Stats.Metrics.expectation(x)
     m should be (1.2699999999999998)
 
-    val `σ²` = Stats.variance(x)
+    val `σ²` = Stats.Metrics.variance(x)
     `σ²` should be(1.6771000000000003)
 
-    val σ = Stats.standardDeviation(x)
+    val σ = Stats.Metrics.standardDeviation(x)
     σ should be(1.295028957205205)
   }
 
@@ -70,9 +70,9 @@ class Ejercicios extends FunSuite with Matchers {
 
   test("Ejercicio (3.a) Decidir la elección de la alternativa de inversión," +
        "de acuedo con el criterio del valor esperado") {
-    val mA = Stats.expectation(A)
-    val mB = Stats.expectation(B)
-    val mC = Stats.expectation(C)
+    val mA = Stats.Metrics.expectation(A)
+    val mB = Stats.Metrics.expectation(B)
+    val mC = Stats.Metrics.expectation(C)
     mA should be (750)
     mB should be (-500)
     mC should be (-3100)
@@ -82,18 +82,18 @@ class Ejercicios extends FunSuite with Matchers {
 
   test("Ejercicio (3.b) Calcular el desvío estándar de las variables que " +
        "representan cada una de las alternativas") {
-    val σA = Stats.standardDeviation(A)
-    val σB = Stats.standardDeviation(B)
-    val σC = Stats.standardDeviation(C)
+    val σA = Stats.Metrics.standardDeviation(A)
+    val σB = Stats.Metrics.standardDeviation(B)
+    val σC = Stats.Metrics.standardDeviation(C)
     σA should be(460.9772228646444)
     σB should be(2418.677324489565)
     σC should be(8055.432949258531)
   }
 
   test("Ejercicio (3.c) Calcular los correspondientes coeficientes de variación") {
-    val cvA = Stats.variationCoefficient(A)
-    val cvB = Stats.variationCoefficient(B)
-    val cvC = Stats.variationCoefficient(C)
+    val cvA = Stats.Metrics.variationCoefficient(A)
+    val cvB = Stats.Metrics.variationCoefficient(B)
+    val cvC = Stats.Metrics.variationCoefficient(C)
     cvA should be(0.6146362971528592)
     cvB should be(4.8373546489791295)
     cvC should be(2.598526757825333)
