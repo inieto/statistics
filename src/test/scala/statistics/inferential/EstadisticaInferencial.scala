@@ -9,6 +9,7 @@ import statistics.ImplicitConversions._
 
 class EstadisticaInferencial extends FunSuite with Matchers {
 
+  /*
    //Medidas de Posición
    test("Calculate Average Ῡ") {
      val values = List(1,2,3,4,5)
@@ -33,4 +34,5 @@ class EstadisticaInferencial extends FunSuite with Matchers {
      val σ = Stats.standardDeviation(dice)
      σ should be(1.707825127659933)
    }
+   */
  }

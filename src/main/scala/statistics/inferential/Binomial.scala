@@ -5,23 +5,24 @@ package statistics.inferential
  */
 
 import statistics.ImplicitOperators
+
 import scala.collection.immutable.SortedMap
 
-class Normal(m: Double, `σ²`: Double) {
+class Binomial(p: Double) {
 
   import ImplicitOperators._
 
-  val σ = √(`σ²`)
-
+  val q = 1 - p
   /** Estadistica Inferencial (Variables Aleatorias) */
 
+  /*
   def normalize(y: Double): Double = {
-   (y - m) / σ  //Ze (estadístico)
+   (y - p) / √(q)  //Ze (estadístico)
   }
 
   def denormalize(z: Double): Double = {
     // z = (y-m) / σ  => y = z.σ + m
-    z * σ + m
+    z * √(q) + p
   }
 
   /** Probabilidad */
@@ -144,5 +145,6 @@ class Normal(m: Double, `σ²`: Double) {
   private def zIndex(prob: Double): Double = {
     val P = if(prob > 0.5) prob - 0.5 else prob  //check
     inverseMap.filterKeys(p => p <= P).last._2
-  } 
+  }
+  */
 }
